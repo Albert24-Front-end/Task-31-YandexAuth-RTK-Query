@@ -7,8 +7,9 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./theme/theme";
 import { Provider } from "react-redux";
 import { store } from "./store/store"
+import AuthCallback from "./components/AuthCallback/AuthCallback";
 
-function App() {
+
   const router = createBrowserRouter([
     {
       path: "/", 
@@ -26,8 +27,13 @@ function App() {
       path: "/registration",
       element: <RegistrationPage />,
     },
-    
+    {
+      path: "/auth/callback",
+      element: <AuthCallback />,
+    },
   ])
+  
+  function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>

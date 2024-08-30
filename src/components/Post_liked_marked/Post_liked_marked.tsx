@@ -3,11 +3,13 @@ interface IPostProps {
   date: any;
   postText: string;
   photos: [
-    {photo_id: number;
+    {
+      photo_id: number;
      photo_url: string; 
     }
   ]
 }
+
 const Post_liked_marked = ({name, date, postText, photos}: IPostProps) => {
     return (
         <div className="Post _liked _marked">
@@ -23,15 +25,15 @@ const Post_liked_marked = ({name, date, postText, photos}: IPostProps) => {
           <p className="Post__text">{postText}</p>
           <div className="media-container">
             {photos
-            ? photos.map((photo)=>(<img
+            ? photos.map((photo)=>(
+            <img
               className="media__item"
               src={photo.photo_url}
               alt="Post Item"
               key={photo.photo_id}
-            />))
+            />
+          ))
             : ""}
-            
-            
           </div>
           <div className="PostControls">
             <div className="icon-wrapper like">
