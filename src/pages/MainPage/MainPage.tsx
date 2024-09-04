@@ -1,4 +1,5 @@
 import { List, Navbar, WhatsNew, History, Post_liked_marked } from "../../components";
+import { Header } from "../../components/UI/Header/Header";
 import { useGetAllPostsQuery } from "../../store/API/postApi";
 // import "./MainPage.scss";
 import { SCMainPage } from "./MainPage.styled";
@@ -8,6 +9,7 @@ export const MainPage = () => {
   console.log("data", data)
   return (
     <SCMainPage>
+      <Header/>
       <aside className="LeftSide">
         <Navbar/>
         <List listType="subscribes"/>
@@ -21,7 +23,8 @@ export const MainPage = () => {
                 name={post.user_fk.name}
                 date={post.reg_date}
                 postText={post.main_text}
-                photos={post.photos}/>
+                photos={post.photos}
+                postId={post.id}/>
         )): (<h1>Постов нет</h1>)}
       </main>
       <aside className="RightSide">

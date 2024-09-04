@@ -8,31 +8,9 @@ import { theme } from "./theme/theme";
 import { Provider } from "react-redux";
 import { store } from "./store/store"
 import AuthCallback from "./components/AuthCallback/AuthCallback";
+import PostPage from "./pages/PostPage/Postpage";
 
 
-  const router = createBrowserRouter([
-    {
-      path: "/", 
-      element: <LoginPage />, 
-    },
-    {
-      path: "/main", 
-      element: <MainPage />,
-    },
-    {
-      path: "/profile",
-      element: <ProfilePage />,
-    },
-    {
-      path: "/registration",
-      element: <RegistrationPage />,
-    },
-    {
-      path: "/auth/callback",
-      element: <AuthCallback />,
-    },
-  ])
-  
   function App() {
   return (
     <Provider store={store}>
