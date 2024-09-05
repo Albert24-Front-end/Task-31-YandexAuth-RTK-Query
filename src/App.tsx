@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store"
 import AuthCallback from "./components/AuthCallback/AuthCallback";
 import PostPage from "./pages/PostPage/Postpage";
+import { router } from "./utils/routes";
 
 
   function App() {

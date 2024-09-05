@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { LoginPage } from './pages/LoginPage/LoginPage';
-import { MainPage } from './pages/MainPage/MainPage';
-import { ProfilePage } from './pages/ProfilePage/ProfilePage';
-import { RegistrationPage } from './pages/RegistrationPage/RegistratonPage';
-import PostPage from './pages/PostPage/PostPage';
+import { LoginPage } from '../pages/LoginPage/LoginPage';
+import { MainPage } from '../pages/MainPage/MainPage';
+import { ProfilePage } from '../pages/ProfilePage/ProfilePage';
+import { RegistrationPage } from '../pages/RegistrationPage/RegistrationPage';
+import PostPage from '../pages/PostPage/Postpage';
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +25,7 @@ export const router = createBrowserRouter([
   {
     path: "/post/:id",
     element: <PostPage />,
-    // /post/:id - эта запись гласит, что мы переходим на страницу с динамическим id (в link передается id конкретного поста)
+    // /post/:id - эта запись гласит, что мы  переходим на страницу с 
+    // динамическим id (в link передается id конкретного поста)
   },
 ]);
