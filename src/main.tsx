@@ -9,17 +9,16 @@ import { ThemeProvider } from "styled-components";
 import { RouterProvider } from "react-router-dom";
 import { store } from "./store/store.ts";
 import { theme } from "./theme/theme.ts";
-import { router } from "./utils/routes.tsx";
+import { router } from "./lib/routes.tsx";
 
 // export const baseUrl = "http://161.35.153.209:5430/api"
 // export const YANDEX_CLIENT_ID = import.meta.env.VIRE_CLERK_YANDEX_CLIENT_ID
 // export const YANDEX_CLIENT_SECRET = import.meta.env.VIRE_CLERK_YANDEX_CLIENT_SECRET
 // export const REDIRECT_URI = "http://localhost:5173/main";
 
-
-function App() {
-  return (
-    <ClerkProvider
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+      <ClerkProvider
       appearance={{ baseTheme: dark }}
       publishableKey={PUBLISHABLE_KEY}
       afterSignOutUrl="/main"
@@ -34,11 +33,5 @@ function App() {
       </ThemeProvider>
       </Provider>
     </ClerkProvider>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-      <App />
   </React.StrictMode>
 );

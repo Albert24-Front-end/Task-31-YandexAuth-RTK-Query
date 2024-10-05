@@ -1,15 +1,13 @@
-import Input from "../UI/input/Input";
 const WhatsNew =()=> {
     return (
     <div className="WhatsNew">
           <img src="./img/users/arina-volkova.jpeg" alt="User" />
-          <Input type={"text"} placeholder={"Что у вас нового?"} name="whats-new" id="whats-new"/>
-          {/* <input
+          <input
             type="text"
             name="whats-new"
             id="whats-new"
             placeholder="Что у вас нового?"
-          /> */}
+          />
           <div className="icons-wrapper">
             <svg
               className="icon icon-camera"

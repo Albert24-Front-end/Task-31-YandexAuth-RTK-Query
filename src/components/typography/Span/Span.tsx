@@ -10,3 +10,4 @@ const Span =({children, className}: SpanProps)=> {
     )
 }
 export default Span
+// пропс children позволяет прописывать не просто текст, он дает возможность закинуть объекты-другие компоненты

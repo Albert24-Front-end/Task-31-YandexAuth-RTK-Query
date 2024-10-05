@@ -1,10 +1,10 @@
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
-import Input from "./UI/input/Input";
-import Button from "./UI/Button/Button";
+import Input from "../UI/input/Input";
+import Button from "../UI/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { useLoginUserMutation } from "../store/API/authAPI";
+import { useLoginUserMutation } from "../../store/API/authAPI";
 import { useUser } from "@clerk/clerk-react";
 import { useEffect } from "react";
 
@@ -32,27 +32,31 @@ const LoginForm =()=> {
       }
     })
     const navigate = useNavigate();
-    const [ loginUser, {data}] = useLoginUserMutation();
+    const [ loginUser, {data: loginData}] = useLoginUserMutation();
+    const {isSignedIn} = useUser();
     // data (нельзя называть по-другому) - данные, возвращаемые сервером в случае успешного запроса, loginUser - функция, отправляющая данные из логин формы в бэкэнд
-    const { user } = useUser();
-   const userId = localStorage.getItem("userId");
+    
+    const userId = localStorage.getItem("userId");
 
   useEffect(() => {
-    if (user || userId) {
-      navigate("/main");
+    if (loginData?.message) {
+      localStorage.removeItem("userId");
+      alert(loginData.message)
     }
-  }, [user, userId]);
+    if (loginData?.user_id) {
+      localStorage.setItem("userId", JSON.stringify(loginData?.user_id));
+      console.log("Going to main")
+      navigate("/main")
+    }
+    if(isSignedIn|| userId) {
+      navigate("/main")
+    }
+  }, [isSignedIn, userId, loginData]);
 
     const onSubmit: SubmitHandler<LoginForm> = (data) => {
       console.log(data);
       loginUser({email: data.email, password: data.password});
-      if ( data ) {
-        navigate("/main")
-      }
-      // navigate("/main")
     };
-
-    console.log("User data", data)
 
   
     return (

@@ -2,6 +2,8 @@ import Heading from "../typography/Heading/Heading";
 import ListItem from "./ListItem";
 import MusicItem from "./MusicItem";
 import {listData} from "./Data"
+import { useGetSubscribersQuery } from "../../store/API/subscribersApi";
+import { ISubscriber } from "../../store/API/types";
 
 const { subscribes, closeFriends, music } = listData
 
@@ -12,6 +14,11 @@ interface ListProps {
 }
 
 const List =({listType}: ListProps)=>{
+
+  const { data } = useGetSubscribersQuery(null);
+
+  // console.log("data", data);
+
   const renderList =()=> {
   switch (listType) {
     case "subscribes":
@@ -20,17 +27,20 @@ const List =({listType}: ListProps)=>{
           <div className="List__title">
             <Heading variant="h2" text="Подписки"/>
             <span className="count">
-              {subscribes ? subscribes.length : ""}
+            {data ? data.length : ""}
             </span>
           </div>
-          {subscribes && subscribes.map((userElem) => (
-            <ListItem
-            imgUrl={userElem.imgUrl}
-            alt={userElem.alt}
-            mainText={userElem.mainText}
-            secondaryText={userElem.secondaryText}
-            badgeNumber={userElem.badgeNumber}/>
-          ))}
+          {data &&
+              data.map((userElem: ISubscriber) => (
+                <ListItem
+                  mainText={userElem.username}
+                  secondaryText={userElem.name}
+                  key={userElem.id}
+                  imgUrl="/img/users/andrey-kashirskiy.jpeg"
+                  alt={"user"}
+                  badgeNumber={null}
+                />
+              ))}
         </div>
     )
     case "music":

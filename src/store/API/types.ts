@@ -33,8 +33,9 @@ export interface ILoginUserPayload {
 }
 
 export interface ILoginUserResponse {
-  status: number;
+  status: 1 | 0;
   user_id: number;
+  message: string;
 }
 
 export interface IRegisterUserPayload {
@@ -79,6 +80,30 @@ export interface IUpdatePostPayload {
 
 export interface IDeletePostResponse extends IUpdatePostResponse {}
 
+export interface ISubscriber {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+  address: {
+    street: string,
+    suite: string,
+    city: string,
+    zipcode: string,
+    geo: {
+      lat: string,
+      lng: string
+    }
+  },
+  phone: string,
+  website: string,
+  company: {
+    name: string,
+    catchPhrase: string,
+    bs: string,
+  }
+}
 
+export type IGetSubscribersResponse = ISubscriber[]
 
 // interface позволяет наследовать типы из другого interface, а type так не может. Interface можно расширять таким образом  

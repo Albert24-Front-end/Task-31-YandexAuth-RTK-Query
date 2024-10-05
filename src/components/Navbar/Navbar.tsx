@@ -1,10 +1,16 @@
 import NavbarItem from "./NavbarItem";
+import { FaHome, FaUser, FaCamera, FaMusic, FaBookmark } from "react-icons/fa";
+
 
 const Navbar = () => {
     return (
         <nav className="Navbar">
-            <NavbarItem itemText={"Test"} badgeNumber={null}/>
-          <ul className="navbar__list">
+            <NavbarItem itemText="Главная" navigatePath="/main" icon={<FaHome color="blue" size={25} />}/>
+            <NavbarItem itemText="Профиль" navigatePath="/profile" icon={<FaUser color="blue" size={25} />}/>
+            <NavbarItem itemText="Фотографии" navigatePath="#" icon={<FaCamera color="blue" size={25} />}/>
+            <NavbarItem itemText="Музыка" navigatePath="#" icon={<FaMusic color="blue" size={25} />}/>
+            <NavbarItem itemText="Сохраненное" navigatePath="#" icon={<FaBookmark color="blue" size={25} />}/>
+          {/* <ul className="navbar__list">
             <li className="navbar__item">
               <svg
                 className="icon icon-profile"
@@ -159,7 +165,7 @@ const Navbar = () => {
               <p className="item__name">Другое</p>
               <span className="Badge">100</span>
             </li>
-          </ul>
+          </ul> */}
         </nav>
     );
 };

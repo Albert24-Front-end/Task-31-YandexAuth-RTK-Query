@@ -18,3 +18,4 @@ import Bio from "./Bio/Bio";
 export {Input, Button, Heading, RegistrationInfo, Span, Paragraph, Navbar, Image,
      WhatsNew, List, History, Post_liked_marked, Post_Repost_liked_marked, ProfileHeader, UserPosts,
     Bio};
+// это отдельный файл, из которого импортируются компоненты UI, в LoginPage их можно в импорте перечислить вместе (Input, Button, Header)

@@ -7,8 +7,8 @@ export const authAPI = createApi({
   reducerPath: 'authAPI',
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
   endpoints: (builder) => ({
-    getUser: builder.query<IGetUserResponse, string>({  // название endpoint, в <> - типы получаемых и передаваемых данных
-      query: (user_id) => `/user?user_id=${user_id}`, // ключ query, куда передаем ссылку(точнее endpoint фрагмент)
+    getUser: builder.query<IGetUserResponse, string>({  // название endpoint (окончания адреса сайта), в <> - типы получаемых и передаваемых данных
+      query: (user_id) => `/user?user_id=${user_id}`, // ключ query, куда передаем ссылку (точнее endpoint фрагмент)
     }),
 
     loginUser: builder.mutation<ILoginUserResponse, ILoginUserPayload> ({ // payload - то, что отправляем в бэкэнд вместе с запросом или то, что сервер присылает нам в ответ на наш запрос

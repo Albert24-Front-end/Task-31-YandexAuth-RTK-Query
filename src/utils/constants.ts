@@ -3,6 +3,7 @@ export const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 export const YANDEX_CLIENT_ID = import.meta.env.VITE_YANDEX_CLIENT_ID;
 export const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI;
 export const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET;
+export const jsonPlaceholderUrl = "https://jsonplaceholder.typicode.com"
 
 if (!baseUrl) {
   throw new Error("Missing baseUrl");

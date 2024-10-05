@@ -1,6 +1,7 @@
   import { Heading, RegistrationInfo } from "../../components"
+import RegistrationForm from "../../components/forms/RegistrationForm";
 import { SCRegistrationPage } from "./RegistrationPage.styled";
-import RegistrationForm from "../../components/RegistrationForm";
+
 
 export const RegistrationPage = () => {
     return (
